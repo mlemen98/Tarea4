@@ -1,0 +1,42 @@
+#include <iostream>
+#include <fstream>
+#include <cstring>
+#include <cstdlib>
+#include <conio.h>
+using namespace std;
+
+char nom [50];
+int tip = 0, nh = 0;
+float pre = 0, des = 0, pt = 0;
+
+int main ( ){
+cout<<"Nombre del agricultor:";
+cin>>nom;
+cout<<"Ingrese el numero de hectareas a fumigar:\n";
+cin>>nh;
+system("cls");
+cout<<"La Compañia cuenta con los siguientes servicios:\n";
+cout<<"1.Fumigacion contra las malas hierbas;$10 por hectarea.\n";
+cout<<"2.Fumigacion contra langostas;$20 por hectarea.\n";
+cout<<"3.Fumigacion contra gusanos;$30 por hectarea.\n";
+cout<<"4.Fumigacion contra todo lo anterior;$50 por hectarea.\n";
+cout<<"Elija una opcion del 1-4.\n";
+cin>>tip;
+switch(tip){ case 1: pre=10;
+ 		break;
+	     case 2: pre=20; 
+		break;
+	     case 3: pre=30; 
+		break;
+	     case 4: pre=50; 
+		break;
+default: cout<<" No ingreso una opcion del 1-4\n";
+}
+pt = nh*pre;
+if (nh>500)pt = pt - pt*0.05;
+if(pt >1500){des = (pt - 1500)*0.10;
+pt = pt - des;
+}
+printf ("El señor %s debera cancelar %.2f\n",nom,pt);
+getch ( );
+}
